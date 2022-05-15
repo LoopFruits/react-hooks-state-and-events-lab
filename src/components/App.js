@@ -1,32 +1,34 @@
 import React, {useState} from "react";
 import ShoppingList from "./ShoppingList";
-import itemData from "../data/items";
+import itemData from "./items";
+
 
 function App() {
 
-  function handleClick(){
-
-  }
   const [isTone, setIsTone]= useState(false);
+  const [items, setItems] = useState(itemData);
   
   // replace 'false' with a state variable that can be toggled between true and false
   // this will be used for the Dark Mode Toggle feature
 
+  function handleToneClick(){
+    setIsTone((isTone) => !isTone);
+  }
   const appClass = isTone ? "App dark" : "App light"
 
   return (
     <div className={appClass}>
       <header>
         <h2>Shopster</h2>
-        <button onClick={handleClick}>
+        <button onClick={handleToneClick}>
 
-          
+        {isTone ? "Dark" : "Light"}          
 
-          Dark Mode
+           Mode
           
         </button>
       </header>
-      <ShoppingList items={itemData} />
+      <ShoppingList items={items} />
     </div>
   );
 }
