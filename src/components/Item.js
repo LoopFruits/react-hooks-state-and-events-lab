@@ -1,6 +1,9 @@
 import React from "react";
 
 function Item({ name, category }) {
+
+  const [inCart, setInCart]= useState(false);
+
   return (
     <li className="">
       <span>{name}</span>
